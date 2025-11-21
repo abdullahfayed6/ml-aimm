@@ -1,6 +1,9 @@
 from fastapi import FastAPI
-import pickle
 import pandas as pd
+import pickle
+
+# IMPORTANT
+from feature_engineer import FeatureEngineer
 
 app = FastAPI()
 
