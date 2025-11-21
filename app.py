@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-import pandas as pd
 import pickle
+import pandas as pd
 
 app = FastAPI()
 
@@ -9,10 +9,10 @@ with open("model_v2.pkl", "rb") as f:
 
 @app.get("/")
 def home():
-    return {"status": "Render ML API is running!"}
+    return {"status": "Fly.io ML API is running!"}
 
 @app.post("/predict")
-def predict(payload: dict):
-    df = pd.DataFrame([payload])
+def predict(data: dict):
+    df = pd.DataFrame([data])
     pred = model.predict(df)[0]
     return {"prediction": float(pred)}
